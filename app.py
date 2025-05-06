@@ -211,7 +211,7 @@ def dashboard():
     with col2:
         if st.button("🚪 Logout"):
             logout()
-            st.experimental_rerun()
+            st.rerun()
 
 
 
