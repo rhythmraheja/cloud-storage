@@ -4,15 +4,20 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 import hashlib
 import os
+from botocore.client import Config
 
 # ---------- CONFIGURE AWS S3 ----------
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 BUCKET_NAME = os.getenv("BUCKET_NAME")
 
-s3 = boto3.client("s3",
+s3 = boto3.client(
+    "s3",
+    region_name="eu-north-1",  # Use your bucket's region
     aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY)
+    aws_secret_access_key=AWS_SECRET_KEY,
+    config=Config(signature_version='s3v4')
+)
 
 # ---------- DATABASE SETUP ----------
 def init_db():
