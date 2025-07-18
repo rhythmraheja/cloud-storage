@@ -229,6 +229,7 @@ def main():
     if st.session_state.logged_in:
         dashboard()
     else:
+        st.title("☁️ CloudEase File Manager")  # Show title on landing/login/signup
         opt = st.radio("Choose an option", ["Login", "Sign Up"])
         if opt == "Login":
             login()
