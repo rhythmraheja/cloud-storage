@@ -226,8 +226,6 @@ def main():
     st.set_page_config("CloudEase File Manager", "📁")
     if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
-    st.title("☁️ CloudEase File Manager")
-
     if st.session_state.logged_in:
         dashboard()
     else:
